@@ -35,8 +35,18 @@ module DXOpal
 
     def initialize(path_or_url)
       @path_or_url = path_or_url  # Used in error message
+      @volume = 230
     end
     attr_accessor :decoded
+
+    def set_volume(volume, time=0)
+      # TODO Support time
+      @volume = volume
+    end
+
+    def gain_value
+      (@volume.to_f / 255.0) ** 10
+    end
 
     # Play this sound once
     def play
@@ -46,7 +56,10 @@ module DXOpal
         var context = #{Sound.audio_context};
         source = context.createBufferSource();
         source.buffer = #{@decoded};
-        source.connect(context.destination);
+        var gain = context.createGain();
+        gain.gain.value = #{gain_value};
+        source.connect(gain);
+        gain.connect(context.destination);
         source.start(0); 
       }
       @source = source

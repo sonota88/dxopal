@@ -12,5 +12,11 @@ Window.load_resources do
     dy = -dy if y < 0 || y > Window.height
     x += dx
     y += dy
+
+    x2 = 50
+    y2 = 50
+    Window.draw_circle_fill(x2, y2, 10, C_BLACK)
+    Window.draw_circle(     x2, y2, 12, C_BLACK)
+    Window.draw_box(x2-14, y2-14, x2+14, y2+14, C_BLACK)
   end
 end

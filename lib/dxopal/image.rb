@@ -260,7 +260,7 @@ module DXOpal
       %x{
         ctx.beginPath();
         ctx.fillStyle = #{_rgba(color)};
-        ctx.arc(x, y, r, 0, Math.PI*2, false)
+        ctx.arc(x+0.5, y+0.5, r, 0, Math.PI*2, false)
         ctx.fill();
       }
       return self

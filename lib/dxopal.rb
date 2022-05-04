@@ -14,7 +14,7 @@ require 'dxopal/window'
 require 'dxopal/version'
 # Enable runtime compilation of Opal code (so that you can make games
 # without even install Ruby)
-require 'opal-parser'
+# require 'opal-parser'
 
 # These opal stdlibs will be embedded in dxopal.js.
 require 'singleton'
@@ -26,7 +26,7 @@ require 'set'
 require 'time'
 
 # Patches
-require 'dxopal/patches/require_remote'
+# require 'dxopal/patches/require_remote'
 require 'dxopal/patches/require_dxopal'
 
 module DXOpal
